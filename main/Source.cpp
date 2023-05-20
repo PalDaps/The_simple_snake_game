@@ -2,26 +2,25 @@
 #include <conio.h>
 
 bool GameOver;
-const int width = 10;
-const int height = 5;
+const int width = 30;
+const int height = 30;
 int x, y, fruitX, fruitY, score;
-enum eDirection { STOP = 0, LEFT, UP, RIGHT, UP, DOWN };
+enum class eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
 eDirection dir;
 
 void SetUp()
 {
 	GameOver = false;
-	// dir = STOP;
+	dir = eDirection::STOP;
 	x = width / 2 - 1;
 	y = height / 2 - 1;
 	fruitX = rand() % width;
 	fruitX = rand() % height; 
 	score = 0;
 }
-
 void Draw()
 {
-	// system("cls"); // the clean terminal
+	system("cls"); // the clean terminal
 	for (int i = 0; i < width+1; i++)
 	{
 		std::cout << "#";
@@ -45,7 +44,6 @@ void Draw()
 			}
 			else
 				std::cout << " ";
-			// std::cout << " ";
 		}
 		std::cout << std::endl;
 	}
@@ -53,55 +51,50 @@ void Draw()
 	{
 		std::cout << "#";
 	}
+	std::cout << std::endl;
 }
-
 void Input()
 {
-	/*
 	if (_kbhit())
 	{
 		switch (_getch())
 		{
 		case 'a':
-			dir = LEFT;
-			break;
-		case 'w':
-			dir = UP;
-			break;
-		case 's':
-			dir = DOWN;
+			dir = eDirection::LEFT;
 			break;
 		case 'd':
-			dir = RIGHT;
+			dir = eDirection::RIGHT;
+			break;
+		case 'w':
+			dir = eDirection::UP;
+			break;
+		case 's':
+			dir = eDirection::DOWN;
 			break;
 		case 'x':
 			GameOver = true;
 			break;
 		}
 	}
-	*/
 }
 
 void Logic()
 {
-	/*
 	switch(dir)
 	{ 
-		case LEFT:
+		case eDirection::LEFT:
 			x--;
 			break;
-		case RIGHT:
+		case eDirection::RIGHT:
 			x++;
 			break;
-		case UP:
+		case eDirection::UP:
 			y++;
 			break;
-		case DOWN:
+		case eDirection::DOWN:
 			y--;
 			break;
 	}
-	*/
-
 }
 
 int main()
