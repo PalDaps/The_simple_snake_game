@@ -2,8 +2,8 @@
 #include <conio.h>
 
 bool GameOver;
-const int width = 20;
-const int height = 20;
+const int width = 10;
+const int height = 5;
 int x, y, fruitX, fruitY, score;
 enum eDirection { STOP = 0, LEFT, UP, RIGHT, UP, DOWN };
 eDirection dir;
@@ -21,13 +21,12 @@ void SetUp()
 
 void Draw()
 {
-	system("cls"); // the clean terminal
+	// system("cls"); // the clean terminal
 	for (int i = 0; i < width+1; i++)
 	{
 		std::cout << "#";
 	}
 	std::cout << std::endl;
-
 	for (int i = 0; i < height; i++)
 	{
 		for (int j = 0; j < width; j++)
@@ -54,11 +53,11 @@ void Draw()
 	{
 		std::cout << "#";
 	}
-	std::cout << std::endl;
 }
 
 void Input()
 {
+	/*
 	if (_kbhit())
 	{
 		switch (_getch())
@@ -80,10 +79,12 @@ void Input()
 			break;
 		}
 	}
+	*/
 }
 
 void Logic()
 {
+	/*
 	switch(dir)
 	{ 
 		case LEFT:
@@ -99,6 +100,7 @@ void Logic()
 			y--;
 			break;
 	}
+	*/
 
 }
 
