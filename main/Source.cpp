@@ -2,8 +2,8 @@
 #include <conio.h>
 
 bool GameOver;
-const int width = 30;
-const int height = 30;
+const int width = 100;
+const int height = 40;
 int x, y, fruitX, fruitY, score;
 int taliX[100], taliY[100];
 int nTail;
@@ -46,11 +46,14 @@ void Draw()
 			}
 			else
 			{
+				bool print = false;
 				for (int k = 0; k < nTail; k++) {
-					if (taliX[k] == j && taliY[k] == i)
+					if (taliX[k] == j && taliY[k] == i) {
 						std::cout << 'o';
+						print = true;
+					}
 				}
-				std::cout << " ";
+				if ( !print ) std::cout << " ";
 			}
 		}
 		std::cout << std::endl;
@@ -93,6 +96,8 @@ void Logic()
 	int prevx = taliX[0];
 	int prevy = taliY[0];
 	int prev2x, prev2y;
+	taliX[0] = x;
+	taliY[0] = y;
 	for (int i = 1; i < nTail; i++) {
 		prev2x = taliX[i];
 		prev2y = taliY[i];
@@ -119,13 +124,26 @@ void Logic()
 			// std::cout << y << " ";
 			break;
 	}
+	if (x >= width)
+		x = 0;
+	else if (x < 0)
+		x = width - 1;
+	if (y >= height)
+		y = 0;
+	else if (y < 0)
+		y = height - 1;
+
+	for (int i = 0; i < nTail; i++) {
+		if (taliX[i] == x && taliY[i] == y)
+			GameOver = true;
+	}
 	if (x > width || x < 0 || y > height || y < 0)
 		GameOver = true;
 	if (x == fruitX && y == fruitY) {
 		score += 100;
-		fruitX = rand() % (width -1);
-		fruitY = rand() % (height -1);
-		nTail++;
+		fruitX = rand() % (width -2);
+		fruitY = rand() % (height -2);
+		nTail += 5;
 	}
 }
 
