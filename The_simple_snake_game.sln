@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main\main.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOP_perfomance", "OOP_perfomance\OOP_perfomance.vcxproj", "{C90DDE74-8803-4E20-B42A-21848CF7CB1D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Snake", "Snake\Snake.vcxproj", "{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{C90DDE74-8803-4E20-B42A-21848CF7CB1D}.Release|x64.Build.0 = Release|x64
 		{C90DDE74-8803-4E20-B42A-21848CF7CB1D}.Release|x86.ActiveCfg = Release|Win32
 		{C90DDE74-8803-4E20-B42A-21848CF7CB1D}.Release|x86.Build.0 = Release|Win32
+		{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}.Debug|x64.ActiveCfg = Debug|x64
+		{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}.Debug|x64.Build.0 = Debug|x64
+		{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}.Debug|x86.ActiveCfg = Debug|Win32
+		{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}.Debug|x86.Build.0 = Debug|Win32
+		{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}.Release|x64.ActiveCfg = Release|x64
+		{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}.Release|x64.Build.0 = Release|x64
+		{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}.Release|x86.ActiveCfg = Release|Win32
+		{6971FAFD-7F55-4C4F-B74C-A2ED0611EFBF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
