@@ -20,6 +20,7 @@ void SetUp()
 	fruitY = rand() % (height-1); 
 	score = 0;
 }
+
 void Draw()
 {
 	system("cls"); // the clean terminal
