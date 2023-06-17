@@ -1,10 +1,10 @@
 #include <iostream>
 #include <conio.h>
 
-
+char input = ' ';
 
 struct Map {
-	Map() : height(30), width(30) {
+	Map() : height(32), width(32) {
 	}
 	int height;
 	int width;
@@ -36,8 +36,8 @@ void map_generator() {
 		for (int j = 0; j < map.width; j++) {
 			if (i == 0 || i == map.height - 1) *(*(array_map + i) + j) = '*';
 			else if (j == 0 || j == map.width - 1) *(*(array_map + i) + j) = '*';
-			else if (j == snake.x && i == snake.y ) *(*(array_map + i) + j) = '0';
-			else if (i == fruit.x && j == fruit.y ) *(*(array_map + i) + j) = '@';
+			else if (j == snake.x && i == snake.y ) *(*(array_map + i) + j) = '0'; 
+			else if (j == fruit.x && i == fruit.y ) *(*(array_map + i) + j) = '@';
 			else *(*(array_map + i) + j) = ' ';
 		}
 	}
@@ -50,6 +50,8 @@ void map_generator() {
 	}
 	char word[] = "LogData\0";
 	std::cout << word << std::endl;
+	std::cout << "snake.x : " << snake.x << " | " << "snake.y : " << snake.y << std::endl;
+	std::cout << "fruit.x : " << fruit.x << " | " << "fruit.y : " << fruit.y << std::endl;
 
 	// deleting memory
 	for (int i = 0; i < map.height; i++) {
@@ -59,7 +61,10 @@ void map_generator() {
 }
 
 void logic() {
-	switch (_getch()) {
+	if (_kbhit()) {
+		input = _getch();
+	}
+		switch (input) { // a
 		case 'a':
 			snake.x--;
 			break;
@@ -72,12 +77,21 @@ void logic() {
 		case 's':
 			snake.y++;
 			break;
-		default:
+		default :
 			break;
+		}
+		if (snake.x == fruit.x && snake.y == fruit.y) {
+			fruit.x = rand() % map.height;
+			fruit.y = rand() % map.width;
 	}
 }
 
+void setNonBlockingMode() {
+
+}
+
 int main() {
+	bool TheEnd = 0;
 	while (true) {
 		map_generator();
 		logic();
